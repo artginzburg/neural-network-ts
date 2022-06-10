@@ -1,8 +1,15 @@
 {
-    "name": "vt-neural-network",
-    "version": "0.0.4",
+    "name": "vt-neural-network-ts",
+    "version": "0.0.5",
     "description": "A example neural network",
     "license": "MIT",
+    "maintainers": [
+        {
+            "name": "Art Ginzburg",
+            "email": "ginzburg.arthur@gmail.com",
+            "url": "https://ginzburg.art"
+        }
+    ],
     "author": {
         "name": "rafinskipg",
         "email": "rafinskipg@gmail.com",
