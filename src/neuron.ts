@@ -1,6 +1,15 @@
+import type Connection from './connection'
 
 import uid from './uid'
 class Neuron {
+  inputConnections: Connection[]
+  outputConnections: Connection[]
+  bias: number
+  delta: number
+  output: number
+  error: number
+  id: string
+
   constructor() {
     this.inputConnections = []
     this.outputConnections = []
@@ -27,30 +36,30 @@ class Neuron {
   getRandomBias() {
     const min = -3;
     const max = 3
-    return Math.floor(Math.random() * (+max - +min)) +min; 
+    return Math.floor(Math.random() * (+max - +min)) +min;
   }
 
-  addInputConnection(connection) {
+  addInputConnection(connection: Connection) {
     this.inputConnections.push(connection)
   }
 
-  addOutputConnection(connection) {
+  addOutputConnection(connection: Connection) {
     this.outputConnections.push(connection)
   }
 
-  setBias(val) {
+  setBias(val: number) {
     this.bias = val
   }
 
-  setOutput(val) {
+  setOutput(val: number) {
     this.output = val
   }
 
-  setDelta(val) {
+  setDelta(val: number) {
     this.delta = val
   }
 
-  setError(val) {
+  setError(val: number) {
     this.error = val
   }
 }

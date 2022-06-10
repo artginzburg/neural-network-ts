@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.cra.json",
+  "compilerOptions": {
+    "noEmit": false,
+
+    "checkJs": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+
+    "outDir": "./dist"
+  }
+}

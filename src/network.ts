@@ -3,9 +3,14 @@ import Connection from './connection'
 import Layer from './layer'
 
 class Network {
-  constructor(numberOfLayers) {
-    this.layers = numberOfLayers.map((length, index) => {
-      const layer = new Layer(length) 
+  layers: Layer[]
+  learningRate: number
+  momentum: number
+  iterations: number
+
+  constructor(numberOfLayers: number[]) {
+    this.layers = numberOfLayers.map((length: number, index: number) => {
+      const layer = new Layer(length)
       if (index !== 0 ) {
         layer.neurons.forEach(neuron => {
           neuron.setBias(neuron.getRandomBias())
@@ -27,11 +32,11 @@ class Network {
     }
   }
 
-  setLearningRate(value) {
+  setLearningRate(value: number) {
     this.learningRate = value
   }
 
-  setIterations(val) {
+  setIterations(val: number) {
     this.iterations = val
   }
 
@@ -50,7 +55,7 @@ class Network {
   }
 
   // When training we will run this set of functions each time
-  train(input, output) {
+  train(input: number[], output: number[]) {
     this.activate(input)
 
     // Forward propagate
@@ -63,7 +68,7 @@ class Network {
     this.setIterations(this.iterations + 1)
   }
 
-  activate(values) {
+  activate(values: number[]) {
     this.layers[0].neurons.forEach((n, i) => {
       n.setOutput(values[i])
     })
@@ -83,7 +88,7 @@ class Network {
         const connectionsValue = this.layers[layer].neurons[neuron].inputConnections.reduce((prev, conn)  => {
           const val = conn.weight * conn.from.output
           return prev + val
-        }, 0) 
+        }, 0)
 
         this.layers[layer].neurons[neuron].setOutput(sigmoid(bias + connectionsValue))
       }
@@ -92,7 +97,7 @@ class Network {
     return this.layers[this.layers.length - 1].neurons.map(n => n.output)
   }
 
-  calculateDeltasSigmoid(target) {
+  calculateDeltasSigmoid(target: number[]) {
     for (let layer = this.layers.length - 1; layer >= 0; layer--) {
       const currentLayer = this.layers[layer]
 
@@ -123,7 +128,7 @@ class Network {
   }
 
   adjustWeights() {
-    
+
     for (let layer = 1; layer <= this.layers.length -1; layer++) {
       const prevLayer = this.layers[layer - 1]
       const currentLayer = this.layers[layer]
@@ -131,20 +136,20 @@ class Network {
       for (let neuron = 0; neuron < currentLayer.neurons.length; neuron++) {
          const currentNeuron = currentLayer.neurons[neuron]
          let delta = currentNeuron.delta
-         
+
         for (let i = 0; i < currentNeuron.inputConnections.length; i++) {
           const currentConnection = currentNeuron.inputConnections[i]
           let change = currentConnection.change
-         
+
           change = (this.learningRate * delta * currentConnection.from.output)
               + (this.momentum * change);
-          
+
           currentConnection.setChange(change)
           currentConnection.setWeight(currentConnection.weight + change)
         }
 
         currentNeuron.setBias(currentNeuron.bias + (this.learningRate * delta))
-       
+
       }
     }
   }

@@ -1,5 +1,10 @@
+import type Neuron from './neuron'
+
 class Connection {
-  constructor(from, to) {
+  weight: number
+  change: number
+
+  constructor(public from: Neuron, public to: Neuron) {
     this.from = from
     this.to = to
     this.weight = Math.random()
@@ -15,11 +20,11 @@ class Connection {
     }
   }
 
-  setWeight(w) {
+  setWeight(w: number) {
     this.weight = w
   }
 
-  setChange(val) {
+  setChange(val: number) {
     this.change = val
   }
 }
