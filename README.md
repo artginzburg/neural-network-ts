@@ -5,13 +5,13 @@ Implementantion of a Perceptron neural network in JavaScript. It is a simple imp
 For a ready to use implementation please refer to [BrainJS](https://github.com/BrainJS/brain.js)
 ## Installation
 ```
-npm install --save vt-neural-network
+npm i vt-neural-network-ts
 ```
 
 ## Usage 
 
-```javascript
-import { Network } from 'vt-neural-network'
+```js
+import { Network } from 'vt-neural-network-ts'
 
 // Define the layer structure
 const layers = [
