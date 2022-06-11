@@ -7,6 +7,10 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
 
-    "outDir": "./dist"
-  }
+    // Production config
+    "outDir": "./dist",
+    "module": "commonjs",
+    "declaration": true
+  },
+  "exclude": ["./src/__test__"]
 }

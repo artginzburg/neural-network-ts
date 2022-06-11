@@ -3,7 +3,7 @@ import Layer from './layer'
 import Neuron from './neuron'
 import Connection from './connection'
 
-export default {
+export {
   Network,
   Layer,
   Neuron,

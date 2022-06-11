@@ -15,17 +15,18 @@
         "email": "rafinskipg@gmail.com",
         "url": "https://github.com/rafinskipg"
     },
-    "main": "./public/common.js",
+    "main": "./dist/main",
+    "files": [
+        "dist/"
+    ],
     "scripts": {
         "audit": "source-map-explorer public/dist/main.bundle.web.js",
-        "clear": "rm -rf public/dist/",
+        "clear": "rm -rf dist/",
         "clear:all": "rm -rf node_modules/ && npm run clear",
         "count": "find src -name '*.js' | xargs wc -l | sort -r",
-        "build": "webpack ",
-        "build:web": "webpack --config ./webpack.config.web.js",
-        "watch": "webpack -w",
-        "start": "node public/dist/main.bundle.node.js",
-        "test": "jest"
+        "build": "tsc",
+        "test": "jest",
+        "prepack": "npm run build"
     },
     "keywords": [
         "ai",
@@ -45,16 +46,10 @@
         "prediction"
     ],
     "devDependencies": {
-        "@babel/core": "^7.3.4",
-        "@babel/preset-env": "^7.3.4",
         "@types/jest": "^28.1.1",
-        "babel-loader": "^8.0.5",
         "jest": "^28.1.1",
         "source-map-explorer": "^1.7.0",
         "ts-jest": "^28.0.4",
-        "typescript": "^4.7.3",
-        "webpack": "^4.29.6",
-        "webpack-cli": "^3.2.3",
-        "webpack-node-externals": "^1.7.2"
+        "typescript": "^4.7.3"
     }
 }
