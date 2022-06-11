@@ -1,55 +1,55 @@
 {
-    "name": "vt-neural-network-ts",
-    "version": "0.0.6",
-    "description": "A example neural network",
-    "license": "MIT",
-    "maintainers": [
-        {
-            "name": "Art Ginzburg",
-            "email": "ginzburg.arthur@gmail.com",
-            "url": "https://ginzburg.art"
-        }
-    ],
-    "author": {
-        "name": "rafinskipg",
-        "email": "rafinskipg@gmail.com",
-        "url": "https://github.com/rafinskipg"
-    },
-    "main": "./dist/main",
-    "files": [
-        "dist/"
-    ],
-    "scripts": {
-        "audit": "source-map-explorer public/dist/main.bundle.web.js",
-        "clear": "rm -rf dist/",
-        "clear:all": "rm -rf node_modules/ && npm run clear",
-        "count": "find src -name '*.js' | xargs wc -l | sort -r",
-        "build": "tsc",
-        "test": "jest",
-        "prepack": "npm run build"
-    },
-    "keywords": [
-        "ai",
-        "artificial-intelligence",
-        "neural network",
-        "nn",
-        "feed forward",
-        "neural network",
-        "classifier",
-        "neural",
-        "network",
-        "neural-networks",
-        "machine-learning",
-        "synapse",
-        "time series",
-        "time step",
-        "prediction"
-    ],
-    "devDependencies": {
-        "@types/jest": "^28.1.1",
-        "jest": "^28.1.1",
-        "source-map-explorer": "^1.7.0",
-        "ts-jest": "^28.0.4",
-        "typescript": "^4.7.3"
+  "name": "vt-neural-network-ts",
+  "version": "0.0.6",
+  "description": "A example neural network",
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "Art Ginzburg",
+      "email": "ginzburg.arthur@gmail.com",
+      "url": "https://ginzburg.art"
     }
+  ],
+  "author": {
+    "name": "rafinskipg",
+    "email": "rafinskipg@gmail.com",
+    "url": "https://github.com/rafinskipg"
+  },
+  "main": "./dist/main",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "audit": "source-map-explorer public/dist/main.bundle.web.js",
+    "clear": "rm -rf dist/",
+    "clear:all": "rm -rf node_modules/ && npm run clear",
+    "count": "find src -name '*.js' | xargs wc -l | sort -r",
+    "build": "tsc",
+    "test": "jest",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "ai",
+    "artificial-intelligence",
+    "neural network",
+    "nn",
+    "feed forward",
+    "neural network",
+    "classifier",
+    "neural",
+    "network",
+    "neural-networks",
+    "machine-learning",
+    "synapse",
+    "time series",
+    "time step",
+    "prediction"
+  ],
+  "devDependencies": {
+    "@types/jest": "^28.1.1",
+    "jest": "^28.1.1",
+    "source-map-explorer": "^1.7.0",
+    "ts-jest": "^28.0.4",
+    "typescript": "^4.7.3"
+  }
 }
